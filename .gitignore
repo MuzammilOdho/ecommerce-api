@@ -1,38 +1,120 @@
+# ===========================
+# Maven build and dependency files
+# ===========================
 target/
 !.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+.mvn/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+*.log
 
-### IntelliJ IDEA ###
-.idea/modules.xml
-.idea/jarRepositories.xml
-.idea/compiler.xml
-.idea/libraries/
-*.iws
+# ===========================
+# Compiled class files
+# ===========================
+*.class
+*.jar
+*.war
+*.ear
+
+# ===========================
+# IDE specific files
+# ===========================
+
+# IntelliJ
+.idea/
 *.iml
+*.iws
 *.ipr
 
-### Eclipse ###
-.apt_generated
+# Eclipse
 .classpath
-.factorypath
 .project
-.settings
+.settings/
+.factorypath
+.apt_generated/
 .springBeans
-.sts4-cache
+.sts4-cache/
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
 /nbdist/
 /.nb-gradle/
-build/
+/build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Mac OS ###
+# ===========================
+# OS-specific files
+# ===========================
+
+# macOS
 .DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===========================
+# Logs, temp files, etc.
+# ===========================
+logs/
+*.log
+*.tmp
+*.bak
+
+# ===========================
+# Spring Boot / Spring MVC properties
+# ===========================
+
+# Don't commit real config files!
+.env
+*.env
+.env.*
+*.properties
+application.properties
+application.yml
+application-*.properties
+application-*.yml
+
+# Use this instead:
+# application.properties.example
+# .env.example
+
+# ===========================
+# Database files (H2, SQLite etc.)
+# ===========================
+*.h2.db
+*.mv.db
+*.db
+*.sql
+
+# ===========================
+# Node / frontend (if used)
+# ===========================
+node_modules/
+dist/
+build/
+*.tsbuildinfo
+
+# ===========================
+# Git
+# ===========================
+*.orig
+*.rej
+*.patch
+
+# ===========================
+# Others
+# ===========================
+out/
