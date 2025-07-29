@@ -34,7 +34,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(long id, String name, String description, int price, int quantity) {
+    public Product(long id, String name, String description, double price, int quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -42,7 +42,7 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Product(String name, String description, int price, int quantity) {
+    public Product(String name, String description, double price, int quantity) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -95,5 +95,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 }

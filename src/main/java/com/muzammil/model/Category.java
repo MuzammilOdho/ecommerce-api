@@ -19,10 +19,9 @@ public class Category {
 
     }
 
-    public Category(String name, String description, List<Product> products) {
+    public Category(String name, String description) {
         this.name = name;
         this.description = description;
-        this.products = products;
     }
 
     public Category(long id, String name, String description, List<Product> products) {
