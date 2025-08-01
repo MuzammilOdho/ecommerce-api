@@ -40,6 +40,27 @@ public class CategoryController {
         );
         return ResponseEntity.ok(response);
     }
-    //public ResponseEntity<ApiResponse<?> deleteCategory()
+
+    @PutMapping("/category/{id}")
+    public ResponseEntity<ApiResponse<?>> updateCategory(@PathVariable("id") long categoryId, @RequestBody CategoryCreationRequest category) {
+        categoryService.update(category,categoryId);
+        ApiResponse<?> response = new ApiResponse<>(
+                "success",
+                "Category Updated!",
+                null
+        );
+        return ResponseEntity.ok(response);
+    }
+
+    @DeleteMapping("/category/{id}")
+    public ResponseEntity<ApiResponse<?>> deleteCategory(@PathVariable("id") long categoryId) {
+        categoryService.delete(categoryId);
+        ApiResponse<?> response = new ApiResponse<>(
+                "success",
+                "Category deleted!",
+                null
+        );
+        return ResponseEntity.ok(response);
+    }
 
 }

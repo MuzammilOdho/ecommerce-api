@@ -2,6 +2,7 @@ package com.muzammil.controller;
 
 import com.muzammil.dto.ApiResponse;
 import com.muzammil.dto.request.ProductCreationRequest;
+import com.muzammil.dto.request.ProductUpdateRequest;
 import com.muzammil.dto.response.ProductResponse;
 import com.muzammil.service.ProductService;
 import org.springframework.http.HttpStatus;
@@ -57,6 +58,17 @@ public class ProductController {
                 "success",
                 "All products found" ,
                 products
+        );
+        return ResponseEntity.ok(response);
+    }
+
+    @PutMapping("/products")
+    public ResponseEntity<ApiResponse<?>> updateProduct(@RequestBody ProductUpdateRequest productUpdateRequest) {
+        productService.update(productUpdateRequest);
+        ApiResponse<?> response = new ApiResponse<>(
+                "success",
+                "Product Updated!",
+                null
         );
         return ResponseEntity.ok(response);
     }

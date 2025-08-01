@@ -47,7 +47,7 @@ public class CategoryService {
     }
 
 
-    public void delete(int id) {
+    public void delete(long id) {
         Category category = categoryDao.findById(id);
         if ( category == null) {
             return;//TODO
@@ -57,11 +57,13 @@ public class CategoryService {
 
     }
 
-    public void update(Category category) {
-        Category oldCategory = categoryDao.findById(category.getId());
+    public void update(CategoryCreationRequest categoryCreationRequest, long id) {
+        Category category = categoryDao.findById(id);
         if (category == null) {
             return; //TODO
         }
+        category.setName(categoryCreationRequest.getCategoryName());
+        category.setDescription(categoryCreationRequest.getCategoryDescription());
         categoryDao.update(category);
 
     }

@@ -3,6 +3,7 @@ package com.muzammil.service;
 import com.muzammil.dao.CategoryDao;
 import com.muzammil.dao.ProductDao;
 import com.muzammil.dto.request.ProductCreationRequest;
+import com.muzammil.dto.request.ProductUpdateRequest;
 import com.muzammil.dto.response.ProductResponse;
 import com.muzammil.mapper.ProductMapper;
 import com.muzammil.model.Category;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 @Transactional
 public class ProductService {
     ProductDao productDao;
+
     CategoryDao categoryDao;
     public ProductService(ProductDao productDao, CategoryDao categoryDao) {
         this.productDao = productDao;
@@ -31,15 +33,25 @@ public class ProductService {
         product.setCategory(category);
         productDao.save(product);
     }
-//    public void update(ProductCreationRequest productCreationRequest) {
-//        if (productDao.findById(productCreationRequest.getProductId()) != null) {
-//
-//            productDao.update(ProductMapper.toProduct(productCreationRequest));
-//
-//        }else {
-//            //TODO EXCEPTION
-//        }
-//    }
+    public void update(ProductUpdateRequest productUpdateRequest) {
+       Product product = productDao.findById(productUpdateRequest.getProductId());
+        if ( product == null) {
+
+            return;
+        }
+        Category category = categoryDao.findById(productUpdateRequest.getProductCategoryId());
+        if ( category == null) {
+            return;
+        }
+
+        product.setCategory( category );
+        product.setDescription(productUpdateRequest.getProductDescription());
+        product.setName(productUpdateRequest.getProductName());
+        product.setPrice(productUpdateRequest.getProductPrice());
+        product.setQuantity(productUpdateRequest.getProductQuantity());
+
+        productDao.update(product);
+    }
     public void delete(long id) {
         Product product = productDao.findById(id);
         if (product == null) {
